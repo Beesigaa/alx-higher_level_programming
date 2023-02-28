@@ -1,13 +1,16 @@
 #!/usr/bin/python3
+""" Module that creates an Object from a JSON file
+"""
 import json
-"""JavaScript Object Notation"""
 
 
-def from_json_string(my_str):
-    """find an object (Python data structure) represented by a JSON string
+def load_from_json_file(filename):
+    """ Function that creates an Object from a JSON file
     Args:
-        my_str(str): a string
-    Returns:
-        an object (Python data structure) represented by a JSON string
+        filename: textfile name
+    Raises:
+        Exception: when the object can't be encoded
     """
-    return json.loads(my_str)
+    with open(filename, 'r', encoding="utf-8") as f:
+        return json.load(f)
+
